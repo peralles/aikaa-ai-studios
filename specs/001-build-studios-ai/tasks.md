@@ -35,36 +35,36 @@ tests/
 ```
 
 ## Phase 3.1: Setup
-- [ ] T001 Create NestJS project structure with Fastify adapter and TypeScript 5.0+ configuration
-- [ ] T002 Initialize Supabase project with local development environment and database migrations
-- [ ] T003 [P] Configure ESLint, Prettier, and Jest testing framework with TDD-focused rules
-- [ ] T004 [P] Set up environment configuration with Supabase credentials and ActivePieces API keys in .env
+- [x] T001 Create NestJS project structure with Fastify adapter and TypeScript 5.0+ configuration
+- [x] T002 Initialize Supabase project with local development environment and database migrations
+- [x] T003 [P] Configure ESLint, Prettier, and Jest testing framework with TDD-focused rules
+- [x] T004 [P] Set up environment configuration with Supabase credentials and ActivePieces API keys in .env
 
 ## Phase 3.2: Database Schema (TDD Foundation)
-- [ ] T005 Create complete database schema migration with all 10 tables in supabase/migrations/001_create_studios_ai_schema.sql
-- [ ] T006 [P] Implement Row Level Security policies for all tables in supabase/migrations/002_enable_rls_policies.sql
-- [ ] T007 [P] Create analytics view and performance indexes in supabase/migrations/003_create_analytics_and_indexes.sql
+- [x] T005 Create complete database schema migration with all 10 tables in supabase/migrations/001_create_studios_ai_schema.sql
+- [x] T006 [P] Implement Row Level Security policies for all tables in supabase/migrations/002_enable_rls_policies.sql
+- [x] T007 [P] Create analytics view and performance indexes in supabase/migrations/003_create_analytics_and_indexes.sql
 
 ## Phase 3.3: Tests First (TDD) ⚠️ MUST COMPLETE BEFORE 3.4
 **CRITICAL: These tests MUST be written and MUST FAIL before ANY implementation**
 
 ### Contract Tests (API Endpoints)
-- [ ] T008 [P] Contract test POST /companies with curl validation in tests/contract/companies_create.test.sh
-- [ ] T009 [P] Contract test GET /companies with pagination in tests/contract/companies_list.test.sh
-- [ ] T010 [P] Contract test POST /companies/{id}/studios in tests/contract/studios_create.test.sh
-- [ ] T011 [P] Contract test GET /workflow-templates with filtering in tests/contract/workflow_templates_list.test.sh
+- [x] T008 [P] Contract test POST /companies with curl validation in tests/contract/companies_create.test.sh
+- [x] T009 [P] Contract test GET /companies with pagination in tests/contract/companies_list.test.sh
+- [x] T010 [P] Contract test POST /companies/{id}/studios in tests/contract/studios_create.test.sh
+- [x] T011 [P] Contract test GET /workflow-templates with filtering in tests/contract/workflow_templates_list.test.sh
 - [ ] T012 [P] Contract test POST /studios/{id}/executions in tests/contract/workflow_execute.test.sh
 - [ ] T013 [P] Contract test POST /studios/{id}/files with multipart upload in tests/contract/files_upload.test.sh
 - [ ] T014 [P] Contract test POST /studios/{id}/kanban-boards in tests/contract/kanban_boards_create.test.sh
 - [ ] T015 [P] Contract test POST /kanban-boards/{id}/stages in tests/contract/kanban_stages_create.test.sh
 - [ ] T016 [P] Contract test POST /kanban-boards/{id}/cards in tests/contract/kanban_cards_create.test.sh
 - [ ] T017 [P] Contract test POST /kanban-cards/{id}/move in tests/contract/kanban_cards_move.test.sh
-- [ ] T018 [P] Contract test GET /health with service health status in tests/contract/health.test.sh
+- [x] T018 [P] Contract test GET /health with service health status in tests/contract/health.test.sh
 
 ### Integration Tests (User Stories)
-- [ ] T019 [P] Integration test company registration and first studio creation in tests/integration/company_registration.spec.ts
+- [x] T019 [P] Integration test company registration and first studio creation in tests/integration/company_registration.spec.ts
 - [ ] T020 [P] Integration test multi-studio management within company in tests/integration/multi_studio.spec.ts
-- [ ] T021 [P] Integration test Kanban-driven workflow automation in tests/integration/kanban_workflows.spec.ts
+- [x] T021 [P] Integration test Kanban-driven workflow automation in tests/integration/kanban_workflows.spec.ts
 - [ ] T022 [P] Integration test ActivePieces workflow execution flow in tests/integration/workflow_execution.spec.ts
 - [ ] T023 [P] Integration test Supabase Auth with RLS policies in tests/integration/auth_rls.spec.ts
 - [ ] T024 [P] Integration test file upload and access control in tests/integration/file_management.spec.ts
