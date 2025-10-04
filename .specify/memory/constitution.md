@@ -1,50 +1,96 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: initial → 1.0.0
+- Added principles: 
+  * I. Maximum Three Services Architecture
+  * II. Direct Technology Integration 
+  * III. Test-First Development (NON-NEGOTIABLE)
+  * IV. CLI Interface Requirement
+  * V. Security Through Platform
+- Added sections:
+  * Technology Stack Requirements
+  * Performance and Monitoring Standards
+- Templates requiring updates:
+  ✅ plan-template.md - Constitution Check section updated
+  ✅ spec-template.md - aligned with security and testing requirements
+  ✅ tasks-template.md - updated to reflect TDD and CLI requirements
+- Follow-up TODOs: None
+-->
+
+# Studios AI Backend Platform Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Maximum Three Services Architecture
+The platform MUST maintain a maximum of three services to ensure simplicity and 
+reduce operational complexity. Each service MUST have a clear, distinct responsibility:
+Core Platform API, Workflow Execution Engine, and File Management Service. Any proposal 
+for additional services requires explicit architectural justification demonstrating that 
+the functionality cannot be achieved within existing service boundaries.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Direct Technology Integration
+All services MUST use NestJS with Supabase directly without unnecessary abstractions 
+or wrapper layers. ActivePieces workflows MUST be integrated via their standard REST API 
+without custom intermediary services. Database access MUST use Supabase client libraries 
+directly, avoiding ORM layers or custom data access abstractions that do not provide 
+measurable performance or maintainability benefits.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Test-First Development (NON-NEGOTIABLE)  
+TDD is mandatory for all development: Tests MUST be written and approved before implementation.
+All endpoints MUST be testable via simple curl commands with clear expected responses.
+Integration tests MUST use real databases, not mocks, to validate actual data persistence 
+and retrieval. The Red-Green-Refactor cycle is strictly enforced - no feature implementation 
+without failing tests first.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. CLI Interface Requirement
+Every service MUST expose a CLI interface for observability, testing, and operational tasks.
+CLI commands MUST follow text in/out protocol: configuration via arguments or stdin, 
+results to stdout, errors to stderr. CLI interfaces MUST support both JSON output for 
+automation and human-readable formats for manual operation. This ensures services remain 
+debuggable and scriptable in production environments.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Security Through Platform
+Security MUST be implemented using Supabase built-in authentication and row-level security 
+policies rather than custom authentication layers. All endpoints MUST implement rate limiting 
+to prevent abuse. Input validation MUST occur at service boundaries using TypeScript types 
+and validation decorators. All user data access MUST be governed by Supabase RLS policies 
+that ensure users can only access their own organization's data.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Technology Stack Requirements
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+**Framework**: NestJS with TypeScript for all backend services  
+**Database**: Supabase PostgreSQL with row-level security policies  
+**Workflow Integration**: ActivePieces via REST API calls  
+**Authentication**: Supabase Auth with JWT tokens  
+**File Storage**: Supabase Storage with secure access controls  
+**Testing**: Jest for unit tests, Supertest for integration tests with real database  
+**CLI Framework**: Commander.js for consistent CLI interfaces  
+**Rate Limiting**: NestJS throttling middleware  
+**Validation**: class-validator and class-transformer decorators
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Performance and Monitoring Standards
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+**Structured Logging**: All services MUST use structured JSON logging with correlation IDs 
+for request tracing. Workflow execution logs MUST include start time, end time, success/failure 
+status, and error details for debugging failed automations.
+
+**Performance Monitoring**: All workflow executions MUST be monitored for duration and success 
+rates. Database query performance MUST be logged for queries exceeding 500ms. API endpoints 
+MUST log response times and implement health check endpoints for monitoring.
+
+**Error Handling**: All services MUST implement graceful error handling with meaningful error 
+messages. Workflow failures MUST be logged with sufficient detail for troubleshooting. 
+Database connection failures MUST trigger appropriate retry logic with exponential backoff.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other development practices and architectural decisions. 
+All feature specifications, implementation plans, and code reviews MUST verify compliance 
+with these principles. Any deviation requires explicit justification documented in the 
+Complexity Tracking section of implementation plans.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+Amendments to this constitution require approval from project maintainers and MUST include 
+a migration plan for existing code. All constitutional changes MUST be propagated to 
+dependent templates and documentation within 48 hours of approval.
+
+**Version**: 1.0.0 | **Ratified**: 2025-10-04 | **Last Amended**: 2025-10-04

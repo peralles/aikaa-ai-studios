@@ -47,7 +47,13 @@
 ## Constitution Check
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+**Three Services Maximum**: Architecture must not exceed three services (Core Platform API, Workflow Execution Engine, File Management Service)  
+**Direct Technology Integration**: Uses NestJS + Supabase directly without abstractions  
+**ActivePieces Integration**: Uses standard REST API without custom intermediary services  
+**Test-First Development**: TDD approach with curl-testable endpoints and real database integration tests  
+**CLI Interface**: Each service exposes CLI for observability and testing  
+**Supabase Security**: Uses built-in auth, RLS policies, rate limiting, and input validation  
+**Structured Logging**: JSON logging with correlation IDs and workflow execution monitoring
 
 ## Project Structure
 
@@ -216,4 +222,4 @@ directories captured above]
 - [ ] Complexity deviations documented
 
 ---
-*Based on Constitution v2.1.1 - See `/memory/constitution.md`*
+*Based on Constitution v1.0.0 - See `.specify/memory/constitution.md`*

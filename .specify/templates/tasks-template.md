@@ -49,32 +49,32 @@
 
 ## Phase 3.2: Tests First (TDD) ⚠️ MUST COMPLETE BEFORE 3.3
 **CRITICAL: These tests MUST be written and MUST FAIL before ANY implementation**
-- [ ] T004 [P] Contract test POST /api/users in tests/contract/test_users_post.py
-- [ ] T005 [P] Contract test GET /api/users/{id} in tests/contract/test_users_get.py
-- [ ] T006 [P] Integration test user registration in tests/integration/test_registration.py
-- [ ] T007 [P] Integration test auth flow in tests/integration/test_auth.py
+- [ ] T004 [P] Contract test POST /api/users with curl command validation in tests/contract/test_users_post.spec.ts
+- [ ] T005 [P] Contract test GET /api/users/{id} with curl command validation in tests/contract/test_users_get.spec.ts
+- [ ] T006 [P] Integration test user registration with real database in tests/integration/test_registration.spec.ts
+- [ ] T007 [P] Integration test Supabase Auth flow with RLS policies in tests/integration/test_auth.spec.ts
 
 ## Phase 3.3: Core Implementation (ONLY after tests are failing)
-- [ ] T008 [P] User model in src/models/user.py
-- [ ] T009 [P] UserService CRUD in src/services/user_service.py
-- [ ] T010 [P] CLI --create-user in src/cli/user_commands.py
-- [ ] T011 POST /api/users endpoint
-- [ ] T012 GET /api/users/{id} endpoint
-- [ ] T013 Input validation
-- [ ] T014 Error handling and logging
+- [ ] T008 [P] User entity with TypeScript types in src/entities/user.entity.ts
+- [ ] T009 [P] UserService with Supabase client in src/services/user.service.ts  
+- [ ] T010 [P] CLI commands with Commander.js in src/cli/user.commands.ts
+- [ ] T011 POST /api/users NestJS controller with validation decorators
+- [ ] T012 GET /api/users/{id} NestJS controller with rate limiting
+- [ ] T013 Input validation using class-validator decorators
+- [ ] T014 Structured JSON logging with correlation IDs
 
 ## Phase 3.4: Integration
-- [ ] T015 Connect UserService to DB
-- [ ] T016 Auth middleware
-- [ ] T017 Request/response logging
-- [ ] T018 CORS and security headers
+- [ ] T015 Connect UserService to Supabase PostgreSQL
+- [ ] T016 Supabase Auth middleware with JWT validation
+- [ ] T017 Structured logging middleware with correlation IDs
+- [ ] T018 Rate limiting middleware and security headers
 
 ## Phase 3.5: Polish
-- [ ] T019 [P] Unit tests for validation in tests/unit/test_validation.py
-- [ ] T020 Performance tests (<200ms)
-- [ ] T021 [P] Update docs/api.md
-- [ ] T022 Remove duplication
-- [ ] T023 Run manual-testing.md
+- [ ] T019 [P] Unit tests for validation in tests/unit/validation.spec.ts
+- [ ] T020 Performance monitoring for queries >500ms and workflow executions
+- [ ] T021 [P] Update API documentation with curl examples
+- [ ] T022 Health check endpoints for service monitoring
+- [ ] T023 CLI interface testing and documentation
 
 ## Dependencies
 - Tests (T004-T007) before implementation (T008-T014)
