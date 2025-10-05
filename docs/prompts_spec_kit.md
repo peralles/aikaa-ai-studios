@@ -1,0 +1,1 @@
+/constitution Create principles focused on code quality, user interface and user experience consistency having a great performance as requirements. Include governance for how these principles should guide technical decisions and implementation choices.
