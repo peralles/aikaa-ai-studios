@@ -70,11 +70,12 @@
 - [ ] T018 CORS and security headers
 
 ## Phase 3.5: Polish
-- [ ] T019 [P] Unit tests for validation in tests/unit/test_validation.py
-- [ ] T020 Performance tests (<200ms)
-- [ ] T021 [P] Update docs/api.md
-- [ ] T022 Remove duplication
-- [ ] T023 Run manual-testing.md
+- [ ] T019 [P] Unit tests for critical business logic in tests/unit/test_validation.py
+- [ ] T020 Performance benchmarks and optimization (meet defined targets)
+- [ ] T021 [P] UI/UX consistency validation against design system
+- [ ] T022 Code quality review and refactoring
+- [ ] T023 [P] Update docs/api.md
+- [ ] T024 Run manual-testing.md for complete user journeys
 
 ## Dependencies
 - Tests (T004-T007) before implementation (T008-T014)

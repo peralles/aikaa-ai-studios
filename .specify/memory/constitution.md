@@ -1,50 +1,55 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: none → 1.0.0
+- Added principles: I. Code Quality Excellence, II. UI/UX Consistency, III. Performance-First Development
+- Added sections: Technical Standards, Quality Assurance
+- Templates requiring updates: 
+  ✅ updated: constitution.md
+  ✅ updated: plan-template.md (Constitution Check section)
+  ✅ updated: spec-template.md (Requirements alignment)
+  ✅ updated: tasks-template.md (Task categorization)
+- Follow-up TODOs: None
+-->
+
+# Aikaa AI Studios Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Code Quality Excellence
+Code MUST be clean, maintainable, and self-documenting. Every implementation MUST follow established patterns, use meaningful names, and maintain consistent formatting. Technical debt MUST be addressed immediately - no accumulation without explicit justification and remediation timeline. Code reviews MUST verify adherence to quality standards before merge.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+Rationale: High-quality code reduces bugs, improves maintainability, and accelerates long-term development velocity.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### II. UI/UX Consistency  
+User interfaces MUST follow a unified design system with consistent components, interactions, and visual patterns. All UI elements MUST be accessible, responsive, and provide clear user feedback. Navigation patterns MUST be predictable across the entire application. No custom UI solutions unless design system gaps are formally documented and approved.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+Rationale: Consistent user experience builds trust, reduces learning curve, and improves user satisfaction.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### III. Performance-First Development
+Performance MUST be considered from the start, not retrofitted. All features MUST meet defined performance benchmarks before deployment. Database queries MUST be optimized, assets MUST be properly bundled and cached, and loading states MUST provide meaningful feedback. Performance regressions MUST trigger immediate remediation.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+Rationale: Performance directly impacts user experience, retention, and business outcomes.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+## Technical Standards
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+Modern web development stack with TypeScript for type safety, React with proper component architecture, and Supabase for backend services. All code MUST use proper TypeScript typing - no `any` except in approved edge cases. State management MUST be predictable and well-contained. API design MUST follow RESTful principles with proper error handling.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+CSS MUST use utility-first approach with Tailwind CSS. Component libraries MUST prioritize shadcn/ui for consistency. Build processes MUST be optimized for development speed and production performance.
+
+## Quality Assurance
+
+Testing strategy MUST cover critical user paths without over-engineering. Focus on integration tests for user workflows and unit tests for complex business logic. Avoid testing implementation details. Manual testing MUST validate complete user journeys before release.
+
+Code quality tools MUST be automated: ESLint for code standards, TypeScript compiler for type checking, and Prettier for formatting. Performance monitoring MUST be in place to catch regressions early.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+Constitution supersedes all other development practices. All technical decisions MUST align with these principles. When conflicts arise, principles take precedence over convenience or speed.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+Amendment procedure: Changes require documented justification, team review, and migration plan for existing code. Breaking changes require major version increment.
+
+Compliance review: All pull requests MUST verify principle adherence. Architecture decisions MUST be documented and justified against constitutional requirements. Performance metrics MUST be monitored continuously.
+
+Complexity MUST be justified - simple solutions preferred unless complexity provides clear, measurable benefits that align with core principles.
+
+**Version**: 1.0.0 | **Ratified**: 2025-10-05 | **Last Amended**: 2025-10-05
